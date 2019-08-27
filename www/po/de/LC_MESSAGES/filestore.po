@@ -1,0 +1,232 @@
+# German translations for Filestore package.
+# Copyright (C) 2019 THE Filestore'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the Filestore package.
+# root <uz@musoftware.de>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Filestore 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-27 13:49+0200\n"
+"PO-Revision-Date: 2019-08-26 21:04+0200\n"
+"Last-Translator: root <uz@musoftware.de>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: send.php:34 upload-templates/index.php:41
+msgid "\"Abort\""
+msgstr "\"Abbrechen\""
+
+#: receive.php:78
+msgid "\"Generate\""
+msgstr "\"Erzeugen\""
+
+#: send.php:33 upload-templates/index.php:40
+msgid "\"Upload\""
+msgstr "\"Upload\""
+
+#: upload-templates/index.php:51 upload-templates/receive-upload.php:20
+msgid "A file has already been uploaded."
+msgstr "Es wurde bereits eine Datei hochgeladen."
+
+#: upload-templates/receive-upload.php:70
+msgid "A file has been uploaded for you:"
+msgstr "Eine Datei wurde für Dich hochgeladen:"
+
+#: index.php:31
+msgid "Allow someone else to upload a file for me."
+msgstr "Jemand anderem erlauben, eine Datei für mich hochzuladen."
+
+#: receive-generate.php:63 send-upload.php:61
+#: upload-templates/receive-upload.php:85
+msgid "An error has occurred. The error message is:"
+msgstr "Es ist ein Fehler aufgetreten. Die Meldung ist:"
+
+#: receive.php:71
+msgid "Configuration"
+msgstr "Konfiguration"
+
+#: filestore.inc:120
+msgid "Configuration error: Temp directory does not exist."
+msgstr "Konfigurationsfehler: Temporäres Verzeichnis fehlt."
+
+#: receive.php:76
+msgid "Description (optional)"
+msgstr "Beschreibung (optional)"
+
+#: upload-templates/receive-upload.php:75
+#, fuzzy
+msgid "Description: "
+msgstr "Beschreibung (optional)"
+
+#: receive.php:75
+msgid "E-mail address"
+msgstr "E-Mail Adresse"
+
+#: receive-generate.php:10
+msgid "Error copying files."
+msgstr "Fehler beim Kopieren von Dateien."
+
+#: receive-generate.php:37 send-upload.php:40
+#, php-format
+msgid "Error creating directory \"%s\"."
+msgstr "Fehler beim Erzeugen des Verzeichnisses \"%s\"."
+
+#: upload-templates/receive-upload.php:50
+msgid "Error creating the download directory."
+msgstr "Fehler beim Erzeugen des download Verzeichnisses."
+
+#: filestore.inc:202
+msgid "Error generating configuration file."
+msgstr "Fehler beim Erzeugen der Konfigurationsdatei."
+
+#: send-upload.php:48 upload-templates/receive-upload.php:58
+msgid "Error moving received file to destination."
+msgstr "Fehler beim Verschieben der hochgeladenen Datei."
+
+#: filestore.inc:91
+msgid "Error reading entropy data."
+msgstr "Fehler beim Lesen von Entropiedaten."
+
+#: filestore.inc:224
+msgid "Error sending the notification e-mail."
+msgstr "Fehler beim Versenden der Benachrichtigungs-Mail."
+
+#: filestore.inc:123
+msgid "Error writing to disk."
+msgstr "Fehler beim Schreiben auf Platte."
+
+#: filestore.inc:175
+#, php-format
+msgid "File extension is invalid. Allowed extensions are: %s"
+msgstr "Die Dateierweiterung ist ungültig. Erlaubte Erweiterungen sind: %s"
+
+#: filestore.inc:115
+msgid "File is too big."
+msgstr "Die Datei ist zu groß."
+
+#: send.php:37 upload-templates/index.php:44
+msgid "File name:"
+msgstr "Dateiname:"
+
+#: send.php:38 upload-templates/index.php:45
+msgid "File size:"
+msgstr "Dateigröße:"
+
+#: filestore.inc:117
+msgid "File was only partially received."
+msgstr "Die Datei wurde nur teilweise empfangen."
+
+#: index.php:28
+msgid "I want to:"
+msgstr "Ich will:"
+
+#: index.php:36 receive.php:84 send.php:45 upload-templates/index.php:57
+msgid "Imprint"
+msgstr "Impressum"
+
+#: send-upload.php:23 upload-templates/receive-upload.php:33
+msgid "Invalid filename."
+msgstr "Ungültiger Dateiname."
+
+#: filestore.inc:103
+msgid "Invalid parameter (maybe file is too big)."
+msgstr "Ungültiger Parameter (Datei ist möglicherweise zu groß)."
+
+#: filestore.inc:112
+msgid "No file received."
+msgstr "Keine Datei empfangen."
+
+#: filestore.inc:139
+msgid "Out of disk space."
+msgstr "Nicht genug Plattenplatz."
+
+#: receive.php:74
+msgid "Permanent"
+msgstr "Dauerhaft"
+
+#: receive.php:70
+msgid ""
+"Please configure the upload and click \"Generate\". The upload URL will be "
+"sent to the given e-mail address so make sure it is valid!"
+msgstr ""
+"Bitte den Upload konfigurieren und \"Erzeugen\" klicken. Die URL für den "
+"Upload wird an die angegebene E-Mail Adresse geschickt, diese muß also "
+"gültig sein!"
+
+#: index.php:37 receive.php:85 send.php:46 upload-templates/index.php:58
+msgid "Privacy statement"
+msgstr "Datenschutzerklärung"
+
+#: send.php:30 upload-templates/index.php:37
+msgid "Select the file and click \"Upload\"."
+msgstr "Bitte die Datei auswählen und \"Upload\" klicken."
+
+#: receive-generate.php:24
+msgid "The description is invalid."
+msgstr "Die Beschreibung ist ungültig."
+
+#: send-upload.php:55
+msgid "The download URL is:"
+msgstr "Die URL ist:"
+
+#: filestore.inc:160
+msgid "The e-mail address is invalid."
+msgstr "Die E-Mail Adresse ist ungültig."
+
+#: upload-templates/receive-upload.php:80
+msgid ""
+"The file has been successfully uploaded and a notification e-mail has been "
+"sent!"
+msgstr ""
+"Die Datei wurde erfolgreich hochgeladen und es wurde eine E-Mail zur "
+"Benachrichtigung verschickt!"
+
+#: send-upload.php:54
+msgid "The file has been successfully uploaded!"
+msgstr "Die Datei wurde erfolgreich hochgeladen!"
+
+#: receive-generate.php:51
+msgid "The requested upload facility has been generated."
+msgstr "Der gewünschte Upload Zugang wurde bereitgestellt."
+
+#: receive-generate.php:58
+#, php-format
+msgid "The upload URL has been sent to <pre>%s</pre> via e-mail."
+msgstr "Die Upload URL wurde via E-Mail an <pre>%s</pre> versendet."
+
+#: receive-generate.php:52
+msgid "The upload URL is:"
+msgstr "Die Upload URL ist:"
+
+#: receive-generate.php:57
+msgid "The upload has been configured successfully."
+msgstr "Die Upload wurde bereitgestellt."
+
+#: filestore.inc:125
+msgid "Unknown error."
+msgstr "Unbekannter Fehler."
+
+#: index.php:30
+msgid "Upload a file that can be downloaded by someone else."
+msgstr ""
+"Eine Datei hochladen, die von jemand anderem heruntergeladen werden kann."
+
+#: upload-templates/receive-upload.php:77
+msgid "Upload available"
+msgstr "Upload verfügbar"
+
+#: receive-generate.php:55
+msgid "Upload facility has been configured"
+msgstr "Der Upload Zugang wurde konfiguriert"
+
+#: send.php:40 upload-templates/index.php:47
+msgid "Upload progress:"
+msgstr "Upload Fortschritt:"
+
+#~ msgid "Invalid filename"
+#~ msgstr "Ungültiger Dateiname"

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Regenerate main file
+xgettext --package-name FileStore --package-version 0.1.0       \
+         --copyright-holder "Ullrich von Bassewitz"             \
+         --language=PHP --sort-output                           \
+         -d filestore -o po/filestore.pot                       \
+         *.php *.inc upload-templates/*.php
+
+# Update translations
+for T in po/*/LC_MESSAGES/filestore.po; do
+    msgmerge --update $T po/filestore.pot
+    msgfmt --output-file=$(dirname $T)/$(basename -s .po $T).mo $T
+done
+
+
+
