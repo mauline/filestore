@@ -49,5 +49,5 @@ e-mail using mail().
 
 With all this in place, you should be able to get FileStore running in
 less than 10 minutes. Just read the install-instructions.txt document
-in the docs subfolder.
+in the main folder.
 
