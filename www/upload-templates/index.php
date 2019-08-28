@@ -9,13 +9,15 @@
     require (__DIR__ . "/config.inc");
 
     # Generate the page header, start body
-    MakeHeader ("FileStore", "../../filestore.js");
-    StartBody ("FileStore");
+    MakeHeader ("FileStore Upload");
+    StartBody ("FileStore Upload");
 
     # Check if we already had an upload
     if ($Done) {
         printf ("<p><b>%s</b></p>\n", _('A file has already been uploaded.'));
     } else {
+        # We need javascript code here
+        LoadJS ();
 ?>
 
 <p><?=_('Select the file and click "Upload".');?></p>

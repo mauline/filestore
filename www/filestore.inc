@@ -18,7 +18,7 @@
     # Allowed recipient mail domains for notifications. Must include the
     # '@' sign.
     $AllowedMailDomains = array (
-        '@example.com'
+        '@example.com'                           
     );
 
     # Locales we support
@@ -90,6 +90,18 @@
             # Error
             throw new RuntimeException (_('Error reading entropy data.'));
         }
+    }
+
+    # Function that converts an string from the INI file that contains a size
+    # modifier into a number.
+    function InBytes ($Val) {
+        $Val = trim ($Val);
+        switch (strtolower($Val[strlen($Val)-1])) {
+            case 'g': $Val *= 1024;
+            case 'm': $Val *= 1024;
+            case 'k': $Val *= 1024;
+        }
+        return $Val;
     }
 
     # Function that checks for upload errors and throws an exception if we have
@@ -224,6 +236,23 @@
                 _('Error sending the notification e-mail.')
             );
         }
+    }
+
+    # Function that inserts load commands for the javascript module
+    function LoadJS ()
+    {
+        # We do need to pass some stuff to the javascript code.
+        global $AllowedExts;
+        global $MainDirURL;
+        print ("<script>\n");
+        printf ("var AllowedExts = [ '.%s' ];\n", implode ("','.", $AllowedExts));
+        printf ("var ErrorInUpload = '%s';\n", _('Error in upload'));
+        printf ("var FileTooBig = '%s';\n", _('file is too big'));
+        printf ("var InvalidExt = '%s';\n", _('invalid extension'));
+        printf ("var MaxFileSize = %d;\n", InBytes (ini_get ('post_max_size')));
+        printf ("var UploadAborted = '%s';\n", _('Upload aborted'));
+        print ("</script>\n");
+        printf ("<script src=\"%s\"></script>\n", $MainDirURL . "/filestore.js");
     }
 
 ?>

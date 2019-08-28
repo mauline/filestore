@@ -4,9 +4,11 @@
     # the user visible pages.
 
     # Function to create the page header
-    function MakeHeader ($Title, $Script = null)
+    function MakeHeader ($Title)
     {
         global $Lang;
+        global $MainDirURL;
+
         $L = substr ($Lang, 0, 2);
     	$Desc = htmlspecialchars ($Title);
        	print ("<!DOCTYPE HTML>\n");
@@ -14,11 +16,8 @@
     	print ("<head>\n");
        	print ("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n");
        	print ("<meta name=\"description\" content=\"$Desc\">\n");
-    	print ("<link rel=\"shortcut icon\" href=\"/images/filestore.ico\">\n");
+    	print ("<link rel=\"shortcut icon\" href=\"$MainDirURL/images/filestore.ico\">\n");
        	print ("<title>$Title</title>\n");
-        if (is_string ($Script)) {
-            print ("<script src=\"$Script\"></script>\n");
-        }
     	print ("</head>\n");
     	print ("\n");
     }

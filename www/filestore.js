@@ -16,37 +16,31 @@ if (!String.prototype.endsWith) {
 function ValidExt(name)
 {
     name = String(name).toLowerCase();
-    if (name.endsWith(".7z"))   return true
-    if (name.endsWith(".dat"))  return true;
-    if (name.endsWith(".jpeg")) return true;
-    if (name.endsWith(".jpg"))  return true;
-    if (name.endsWith(".pdf"))  return true;
-    if (name.endsWith(".png"))  return true;
-    if (name.endsWith(".rar"))  return true;
-    if (name.endsWith(".zip"))  return true;
-    return false;
+    return AllowedExts.find(function(E) { return name.endsWith(E); });
 }
 
 function SizeAsString(size)
 {
+    var Res;
     if (size < 1000) {
-        return String(size) + ' B';
+        Res = String(size) + ' B';
     } else if (size < 1000 * 10) {
-        return String((size / 1000.0).toFixed(2)) + ' KB';
+        Res = String((size / 1000.0).toFixed(2)) + ' KB';
     } else if (size < 1000 * 100) {
-        return String((size / 1000.0).toFixed(1)) + ' KB';
+        Res = String((size / 1000.0).toFixed(1)) + ' KB';
     } else if (size < 1000 * 1000) {
-        return String((size / 1000.0).toFixed(0)) + ' KB';
+        Res = String((size / 1000.0).toFixed(0)) + ' KB';
     } else if (size < 1000 * 1000 * 10) {
-        return String((size / (1000.0 * 1000.0)).toFixed(2)) + ' MB';
+        Res = String((size / (1000.0 * 1000.0)).toFixed(2)) + ' MB';
     } else if (size < 1000 * 1000 * 100) {
-        return String((size / (1000.0 * 1000.0)).toFixed(1)) + ' MB';
-    } else if (size <= 1024 * 1000 * 1000) {
-        return String((size / (1000.0 * 1000.0)).toFixed(0)) + ' MB';
+        Res = String((size / (1000.0 * 1000.0)).toFixed(1)) + ' MB';
     } else {
-        return String((size / (1000.0 * 1000.0)).toFixed(0)) +
-                            ' MB (Datei ist zu groß)';
+        Res = String((size / (1000.0 * 1000.0)).toFixed(0)) + ' MB';
     }
+    if (size > MaxFileSize) {
+        Res += ' (' + FileIsTooBig + ')';
+    }
+    return Res;
 }
 
 function ResetUI()
@@ -77,7 +71,7 @@ function FileChangeHandler()
     if (ValidExt(file.name)) {
         fileName.innerHTML = file.name;
     } else {
-        fileName.innerHTML = file.name + " (ungültige Erweiterung)";
+        fileName.innerHTML = file.name + ' (' + InvalidExt + ')';
     }
 
     // Show file properties and reset progress bar and result
@@ -127,7 +121,7 @@ function UploadFileHandler(action)
 
     // Specify the function called on errors
     client.onerror = function(e) {
-        alert("Fehler beim Upload");
+        alert(ErrorInUpload);
         ResetUI();
     };
 
@@ -147,7 +141,7 @@ function UploadFileHandler(action)
 
     // Specify the function when upload is aborted
     client.onabort = function(e) {
-        alert("Upload abgebrochen");
+        alert(UploadAborted);
         ResetUI();
     };
 

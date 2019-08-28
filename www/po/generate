@@ -9,7 +9,7 @@ xgettext --package-name FileStore --package-version 0.1.0       \
 
 # Update translations
 for T in po/*/LC_MESSAGES/filestore.po; do
-    msgmerge --update $T po/filestore.pot
+    msgmerge --update -N $T po/filestore.pot
     msgfmt --output-file=$(dirname $T)/$(basename -s .po $T).mo $T
 done
 

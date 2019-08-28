@@ -11,8 +11,31 @@
 ?>
 
 <script>
-function GenerateHandler()
+if (!String.prototype.endsWith) {
+    // Internet exploder doesn't support endsWith
+    String.prototype.endsWith = function(searchString, position)
+    {
+        var subjectString = this.toString();
+        if (typeof position !== 'number' || !isFinite(position) ||
+            Math.floor(position) !== position || position > subjectString.length) {
+            position = subjectString.length;
+        }
+        position -= searchString.length;
+        var lastIndex = subjectString.indexOf(searchString, position);
+        return lastIndex !== -1 && lastIndex === position;
+    };
+}
+
+function GenerateHandler()                                               
 {
+    // Make sure we have an e-mail address given
+    var AllowedMailDomains = <?= sprintf ("[ '%s' ];\n", implode ("','", $AllowedMailDomains)); ?>
+    var Email = document.getElementById("EmailInput").value.toLowerCase();
+    if (!AllowedMailDomains.find(function(E) { return Email.endsWith(E); })) {
+        alert('<?=_('The e-mail address is invalid.');?>');
+        return;
+    };
+
     // Create a new FormData object
     var formData = new FormData(document.querySelector("form"));
 
@@ -30,7 +53,7 @@ function GenerateHandler()
 
     // Specify the function called on errors
     client.onerror = function(e) {
-        alert("Fehler bei der Erzeugung");
+        alert('<?=_('Error generating upload page');?>');
         generateButton.disabled = false;
     };
 
@@ -57,8 +80,8 @@ function GenerateHandler()
 <form action="receive-generate.php" method="post" id="ConfigurationForm" enctype="application/x-www-form-urlencoded">
     <table>
     <tr><td><label for="PermanentCheckbox"><?=_('Permanent');?></label></td><td><input name="permanent" value="false" type="checkbox" id="PermanentCheckbox"></td></tr>
-    <tr><td><label for="EmailInput"><?=_('E-mail address');?></label></td><td><input name="email" value="" type="email" maxlength="80" id="EmailInput"></td></tr>
-    <tr><td><label for="DescInput"><?=_('Description (optional)');?></label></td><td><input name="description" value="" type="text" maxlength="80" id="DescInput"></td></tr>
+    <tr><td><label for="EmailInput"><?=_('Your e-mail address');?></label></td><td><input name="email" value="" type="email" maxlength="80" size="80" id="EmailInput" required></td></tr>
+    <tr><td><label for="DescInput"><?=_('Description (optional)');?></label></td><td><input name="description" value="" type="text" maxlength="80" size="80" id="DescInput"></td></tr>
     </table><p>
     <input name="generate" value=<?=_('"Generate"');?> type="button" id="GenerateButton" onclick="GenerateHandler();" />
 </form><p>

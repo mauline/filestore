@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FileStore 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-27 13:49+0200\n"
+"POT-Creation-Date: 2019-08-28 13:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,19 +17,19 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: send.php:34 upload-templates/index.php:41
+#: send.php:20 upload-templates/index.php:27
 msgid "\"Abort\""
 msgstr ""
 
-#: receive.php:78
+#: receive.php:63
 msgid "\"Generate\""
 msgstr ""
 
-#: send.php:33 upload-templates/index.php:40
+#: send.php:19 upload-templates/index.php:26
 msgid "\"Upload\""
 msgstr ""
 
-#: upload-templates/index.php:51 upload-templates/receive-upload.php:20
+#: upload-templates/index.php:17 upload-templates/receive-upload.php:20
 msgid "A file has already been uploaded."
 msgstr ""
 
@@ -37,7 +37,7 @@ msgstr ""
 msgid "A file has been uploaded for you:"
 msgstr ""
 
-#: index.php:31
+#: index.php:16
 msgid "Allow someone else to upload a file for me."
 msgstr ""
 
@@ -46,24 +46,20 @@ msgstr ""
 msgid "An error has occurred. The error message is:"
 msgstr ""
 
-#: receive.php:71
+#: receive.php:56
 msgid "Configuration"
 msgstr ""
 
-#: filestore.inc:120
+#: filestore.inc:132
 msgid "Configuration error: Temp directory does not exist."
 msgstr ""
 
-#: receive.php:76
+#: receive.php:61
 msgid "Description (optional)"
 msgstr ""
 
 #: upload-templates/receive-upload.php:75
 msgid "Description: "
-msgstr ""
-
-#: receive.php:75
-msgid "E-mail address"
 msgstr ""
 
 #: receive-generate.php:10
@@ -79,8 +75,16 @@ msgstr ""
 msgid "Error creating the download directory."
 msgstr ""
 
-#: filestore.inc:202
+#: filestore.inc:214
 msgid "Error generating configuration file."
+msgstr ""
+
+#: receive.php:33
+msgid "Error generating upload page"
+msgstr ""
+
+#: filestore.inc:249
+msgid "Error in upload"
 msgstr ""
 
 #: send-upload.php:48 upload-templates/receive-upload.php:58
@@ -91,40 +95,40 @@ msgstr ""
 msgid "Error reading entropy data."
 msgstr ""
 
-#: filestore.inc:224
+#: filestore.inc:236
 msgid "Error sending the notification e-mail."
 msgstr ""
 
-#: filestore.inc:123
+#: filestore.inc:135
 msgid "Error writing to disk."
 msgstr ""
 
-#: filestore.inc:175
+#: filestore.inc:187
 #, php-format
 msgid "File extension is invalid. Allowed extensions are: %s"
 msgstr ""
 
-#: filestore.inc:115
+#: filestore.inc:127
 msgid "File is too big."
 msgstr ""
 
-#: send.php:37 upload-templates/index.php:44
+#: send.php:23 upload-templates/index.php:30
 msgid "File name:"
 msgstr ""
 
-#: send.php:38 upload-templates/index.php:45
+#: send.php:24 upload-templates/index.php:31
 msgid "File size:"
 msgstr ""
 
-#: filestore.inc:117
+#: filestore.inc:129
 msgid "File was only partially received."
 msgstr ""
 
-#: index.php:28
+#: index.php:13
 msgid "I want to:"
 msgstr ""
 
-#: index.php:36 receive.php:84 send.php:45 upload-templates/index.php:57
+#: layout.inc:40
 msgid "Imprint"
 msgstr ""
 
@@ -132,33 +136,33 @@ msgstr ""
 msgid "Invalid filename."
 msgstr ""
 
-#: filestore.inc:103
+#: filestore.inc:115
 msgid "Invalid parameter (maybe file is too big)."
 msgstr ""
 
-#: filestore.inc:112
+#: filestore.inc:124
 msgid "No file received."
 msgstr ""
 
-#: filestore.inc:139
+#: filestore.inc:151
 msgid "Out of disk space."
 msgstr ""
 
-#: receive.php:74
+#: receive.php:59
 msgid "Permanent"
 msgstr ""
 
-#: receive.php:70
+#: receive.php:55
 msgid ""
 "Please configure the upload and click \"Generate\". The upload URL will be "
 "sent to the given e-mail address so make sure it is valid!"
 msgstr ""
 
-#: index.php:37 receive.php:85 send.php:46 upload-templates/index.php:58
+#: layout.inc:41
 msgid "Privacy statement"
 msgstr ""
 
-#: send.php:30 upload-templates/index.php:37
+#: send.php:16 upload-templates/index.php:23
 msgid "Select the file and click \"Upload\"."
 msgstr ""
 
@@ -170,7 +174,7 @@ msgstr ""
 msgid "The download URL is:"
 msgstr ""
 
-#: filestore.inc:160
+#: filestore.inc:172
 msgid "The e-mail address is invalid."
 msgstr ""
 
@@ -201,12 +205,16 @@ msgstr ""
 msgid "The upload has been configured successfully."
 msgstr ""
 
-#: filestore.inc:125
+#: filestore.inc:137
 msgid "Unknown error."
 msgstr ""
 
-#: index.php:30
+#: index.php:15
 msgid "Upload a file that can be downloaded by someone else."
+msgstr ""
+
+#: filestore.inc:253
+msgid "Upload aborted"
 msgstr ""
 
 #: upload-templates/receive-upload.php:77
@@ -217,6 +225,18 @@ msgstr ""
 msgid "Upload facility has been configured"
 msgstr ""
 
-#: send.php:40 upload-templates/index.php:47
+#: send.php:26 upload-templates/index.php:33
 msgid "Upload progress:"
+msgstr ""
+
+#: receive.php:60
+msgid "Your e-mail address"
+msgstr ""
+
+#: filestore.inc:250
+msgid "file is too big"
+msgstr ""
+
+#: filestore.inc:251
+msgid "invalid extension"
 msgstr ""

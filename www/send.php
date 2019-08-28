@@ -6,8 +6,11 @@
     require (__DIR__ . "/layout.inc");
 
     # Generate the page header, start body
-    MakeHeader ("FileStore Upload", "filestore.js");
+    MakeHeader ("FileStore Upload");
     StartBody ("FileStore Upload");
+
+    # We need javascript code here
+    LoadJS ();
 ?>
 
 <p><?=_('Select the file and click "Upload".');?></p>
