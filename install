@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# Target directory
+TARGET=
+
+# User/group that owns the http daemon. Values below are for centos/RHEL.
+HTTPD_USR=apache
+HTTPD_GRP=apache
+
+# Safety checks
+[ $(id -u) -eq 0 ] || {
+    echo "This script must be run as root!" >&2
+    exit 1
+}
+[ "${TARGET}" ] || {
+    echo "You must define the target directory before running $0" >&2
+    exit 1
+}
+[ -d "${TARGET}" ] || {
+    echo "Target directory ${TARGET} is not a directory!" >&2
+    exit 1
+}
+getent passwd "${HTTPD_USR}" > /dev/null || {
+    echo "The user ${HTTPD_USR} does not exist on this system!" >&2
+    exit 1
+}
+getent group "${HTTPD_GRP}" > /dev/null || {
+    echo "The group ${HTTPD_GRP} does not exist on this system!" >&2
+    exit 1
+}
+
+# Create directories
+install -d -m 02770 -o root -g ${HTTPD_GRP} ${TARGET}/data
+install -d -m 0750 -o root -g ${HTTPD_GRP} ${TARGET}/images
+install -d -m 0750 -o root -g ${HTTPD_GRP} ${TARGET}/po
+install -d -m 0750 -o root -g ${HTTPD_GRP} ${TARGET}/po/de
+install -d -m 0750 -o root -g ${HTTPD_GRP} ${TARGET}/po/de/LC_MESSAGES
+install -d -m 0750 -o root -g ${HTTPD_GRP} ${TARGET}/upload-templates
+
+# Copy files
+install -m 0640 -o root -g ${HTTPD_GRP} www/layout.inc ${TARGET}/layout.inc
+install -m 0640 -o root -g ${HTTPD_GRP} www/receive-generate.php ${TARGET}/receive-generate.php
+install -m 0640 -o root -g ${HTTPD_GRP} www/receive.php ${TARGET}/receive.php
+install -m 0640 -o root -g ${HTTPD_GRP} www/images/filestore-128x128.png ${TARGET}/images/filestore-128x128.png
+install -m 0640 -o root -g ${HTTPD_GRP} www/images/filestore-96x96.png ${TARGET}/images/filestore-96x96.png
+install -m 0640 -o root -g ${HTTPD_GRP} www/images/filestore.ico ${TARGET}/images/filestore.ico
+install -m 0640 -o root -g ${HTTPD_GRP} www/filestore.js ${TARGET}/filestore.js
+install -m 0640 -o root -g ${HTTPD_GRP} www/send-upload.php ${TARGET}/send-upload.php
+install -m 0640 -o root -g ${HTTPD_GRP} www/filestore.inc ${TARGET}/filestore.inc
+install -m 0640 -o root -g ${HTTPD_GRP} www/send.php ${TARGET}/send.php
+install -m 0640 -o root -g ${HTTPD_GRP} www/index.php ${TARGET}/index.php
+install -m 0640 -o root -g ${HTTPD_GRP} www/upload-templates/receive-upload.php ${TARGET}/upload-templates/receive-upload.php
+install -m 0640 -o root -g ${HTTPD_GRP} www/upload-templates/index.php ${TARGET}/upload-templates/index.php
+
+# Copy language files and generate the compiled language ones
+for T in www/po/*/LC_MESSAGES/filestore.po; do
+    PO=$(echo ${T} | sed -e "s|^www|${TARGET}|g")
+    MO=$(dirname ${PO})/$(basename -s .po $T).mo
+    install -m 0640 -o root -g ${HTTPD_GRP} ${T} ${PO}
+    msgfmt --output-file=${MO} ${PO}
+    chown root.${HTTPD_GRP} ${MO}
+    chmod 0640 ${MO}
+done
+
