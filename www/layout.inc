@@ -25,11 +25,13 @@
     # Function that starts a page body
     function StartBody ($Title)
     {
+        global $MainDirURL;
+
        	print ("<body>\n");
         print ("<table style=\"width:100%\"><tr>\n");
-       	print ("    <td style=\"text-align:left\"><img width=\"96\" height=\"96\" alt=\"FileStore Logo\" src=\"/images/filestore-96x96.png\"></td>\n");
+       	print ("    <td style=\"text-align:left\"><img width=\"96\" height=\"96\" alt=\"FileStore Logo\" src=\"$MainDirURL/images/filestore-96x96.png\"></td>\n");
        	print ("    <td style=\"text-align:center\"><h1>$Title</h1></td>\n");
-       	print ("    <td style=\"text-align:right\"><img width=\"96\" height=\"96\" alt=\"FileStore Logo\" src=\"/images/filestore-96x96.png\"></td>\n");
+       	print ("    <td style=\"text-align:right\"><img width=\"96\" height=\"96\" alt=\"FileStore Logo\" src=\"$MainDirURL/images/filestore-96x96.png\"></td>\n");
        	print ("</tr></table>\n");
        	print ("<hr style=\"border-style:solid\"><p>\n");
     }
