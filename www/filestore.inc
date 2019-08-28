@@ -1,6 +1,6 @@
 <?php   # -*- php-mode -*-
 
-    # Allowed file extensions for the upload
+    # Allowed file extensions for the upload. Use lower case.
     $AllowedExts = array (
         '7z',
         'dat',
@@ -16,9 +16,9 @@
     $MailSender = "FileStore <filestore@example.com>";
 
     # Allowed recipient mail domains for notifications. Must include the
-    # '@' sign.
+    # '@' sign. Use lower case.
     $AllowedMailDomains = array (
-        '@example.com'                           
+        '@example.com'
     );
 
     # Locales we support
