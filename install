@@ -41,6 +41,8 @@ install -d -m 0750 -o root -g ${HTTPD_GRP} ${TARGET}/upload-templates
 install -m 0640 -o root -g ${HTTPD_GRP} www/layout.inc ${TARGET}/layout.inc
 install -m 0640 -o root -g ${HTTPD_GRP} www/receive-generate.php ${TARGET}/receive-generate.php
 install -m 0640 -o root -g ${HTTPD_GRP} www/receive.php ${TARGET}/receive.php
+install -m 0640 -o root -g ${HTTPD_GRP} www/images/arrow-left-red-32x16.png ${TARGET}/images/arrow-left-red-32x16.png
+install -m 0640 -o root -g ${HTTPD_GRP} www/images/arrow-right-green-32x16.png ${TARGET}/images/arrow-right-green-32x16.png
 install -m 0640 -o root -g ${HTTPD_GRP} www/images/filestore-128x128.png ${TARGET}/images/filestore-128x128.png
 install -m 0640 -o root -g ${HTTPD_GRP} www/images/filestore-96x96.png ${TARGET}/images/filestore-96x96.png
 install -m 0640 -o root -g ${HTTPD_GRP} www/images/filestore.ico ${TARGET}/images/filestore.ico
