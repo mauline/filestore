@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# Target directory
+TARGET=
+
+# Number of days after which the directories are deleted
+DAYS=10
+
+# Safety checks
+[ $(id -u) -eq 0 ] || {
+    echo "This script must be run as root!" >&2
+    exit 1
+}
+[ "${TARGET}" ] || {
+    echo "You must define the target directory before running $0" >&2
+    exit 1
+}
+[ -d "${TARGET}" ] || {
+    echo "Target directory ${TARGET} is not a directory!" >&2
+    exit 1
+}
+[ -d "${TARGET}/data" ] || {
+    echo "Target directory contains no data subdirectory!" >&2
+    exit 1
+}
+
+# Calculate point of time after which data is deleted
+OLDAGE=$(( $(date +%s) - $(( ${DAYS} * 24 * 3600 )) ))
+
+# Walk over all random directories
+shopt -s nullglob
+for DIR in ${TARGET}/data/*; do
+    NAME=$(basename ${DIR})
+
+    # Ignore lost+found if extra volume was mounted
+    [ ${NAME} == "lost+found" ] && continue
+
+    # Check for stuff that shouldn't be there
+    [ -d ${DIR} ] || {
+        echo "Suspicious file: ${DIR}"
+        continue
+    }
+    [[ ${NAME} =~ ^[0-9a-f]{64}$ ]] || {
+        echo "Suspicious directory: ${DIR}"
+        continue;
+    }
+
+    # FileStore data directory - ignore permanent ones
+    grep -Eqs '\$Permanent *= *TRUE *;' ${DIR}/config.inc && continue
+
+    # Delete directory if it is over age
+    [ $(stat -c%Y ${DIR}) -lt ${OLDAGE} ] && rm -r ${DIR}
+done
+
