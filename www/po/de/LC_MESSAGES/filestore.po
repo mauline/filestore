@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Filestore 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-28 13:55+0200\n"
+"POT-Creation-Date: 2019-08-30 12:15+0200\n"
 "PO-Revision-Date: 2019-08-26 21:04+0200\n"
 "Last-Translator: root <uz@musoftware.de>\n"
 "Language-Team: German\n"
@@ -21,44 +21,48 @@ msgstr ""
 msgid "\"Abort\""
 msgstr "\"Abbrechen\""
 
-#: receive.php:63
+#: receive.php:82
 msgid "\"Generate\""
 msgstr "\"Erzeugen\""
+
+#: upload-templates/remove.php:74
+msgid "\"Remove\""
+msgstr "Entfernen"
 
 #: send.php:19 upload-templates/index.php:26
 msgid "\"Upload\""
 msgstr "\"Upload\""
 
-#: upload-templates/index.php:17 upload-templates/receive-upload.php:20
+#: upload-templates/index.php:17 upload-templates/receive-upload.php:17
 msgid "A file has already been uploaded."
 msgstr "Es wurde bereits eine Datei hochgeladen."
 
-#: upload-templates/receive-upload.php:70
+#: upload-templates/receive-upload.php:67
 msgid "A file has been uploaded for you:"
 msgstr "Eine Datei wurde für Dich hochgeladen:"
 
-#: index.php:16
+#: index.php:20
 msgid "Allow someone else to upload a file for me."
 msgstr "Jemand anderem erlauben, eine Datei für mich hochzuladen."
 
-#: receive-generate.php:63 send-upload.php:61
-#: upload-templates/receive-upload.php:85
+#: receive-generate.php:82 send-upload.php:58
+#: upload-templates/receive-upload.php:82 upload-templates/remove-action.php:48
 msgid "An error has occurred. The error message is:"
 msgstr "Es ist ein Fehler aufgetreten. Die Meldung ist:"
 
-#: receive.php:56
+#: receive.php:75
 msgid "Configuration"
 msgstr "Konfiguration"
 
-#: filestore.inc:132
+#: filestore.inc:135
 msgid "Configuration error: Temp directory does not exist."
 msgstr "Konfigurationsfehler: Temporäres Verzeichnis fehlt."
 
-#: receive.php:61
+#: receive.php:80
 msgid "Description (optional)"
 msgstr "Beschreibung (optional)"
 
-#: upload-templates/receive-upload.php:75
+#: upload-templates/receive-upload.php:72
 msgid "Description: "
 msgstr "Beschreibung: "
 
@@ -66,49 +70,61 @@ msgstr "Beschreibung: "
 msgid "Error copying files."
 msgstr "Fehler beim Kopieren von Dateien."
 
-#: receive-generate.php:37 send-upload.php:40
+#: receive-generate.php:37 send-upload.php:37
 #, php-format
 msgid "Error creating directory \"%s\"."
 msgstr "Fehler beim Erzeugen des Verzeichnisses \"%s\"."
 
-#: upload-templates/receive-upload.php:50
+#: upload-templates/receive-upload.php:47
 msgid "Error creating the download directory."
 msgstr "Fehler beim Erzeugen des download Verzeichnisses."
 
-#: filestore.inc:214
+#: upload-templates/remove-action.php:13
+msgid "Error deleting files."
+msgstr "Fehler beim Löschen von Dateien."
+
+#: upload-templates/remove-action.php:39
+msgid "Error deleting the directory."
+msgstr "Fehler beim Löschen des Verzeichnisses."
+
+#: filestore.inc:219
 msgid "Error generating configuration file."
 msgstr "Fehler beim Erzeugen der Konfigurationsdatei."
 
-#: receive.php:33
+#: receive.php:56
 msgid "Error generating upload page"
 msgstr "Fehler beim Erzeugen der Upload Seite"
 
-#: filestore.inc:249
+#: filestore.inc:254
 msgid "Error in upload"
 msgstr "Fehler beim Hochladen"
 
-#: send-upload.php:48 upload-templates/receive-upload.php:58
+#: send-upload.php:45 upload-templates/receive-upload.php:55
 msgid "Error moving received file to destination."
 msgstr "Fehler beim Verschieben der hochgeladenen Datei."
 
-#: filestore.inc:91
+#: filestore.inc:94
 msgid "Error reading entropy data."
 msgstr "Fehler beim Lesen von Entropiedaten."
 
-#: filestore.inc:236
+#: upload-templates/remove.php:51
+msgid "Error removing upload page"
+msgstr "Fehler beim Löschen der Upload Seite"
+
+#: filestore.inc:241
 msgid "Error sending the notification e-mail."
 msgstr "Fehler beim Versenden der Benachrichtigungs-Mail."
 
-#: filestore.inc:135
+#: filestore.inc:138
 msgid "Error writing to disk."
 msgstr "Fehler beim Schreiben auf Platte."
 
-#: filestore.inc:187
+#: filestore.inc:190
 #, php-format
 msgid "File extension is invalid. Allowed extensions are: %s"
 msgstr "Die Dateierweiterung ist ungültig. Erlaubte Erweiterungen sind: %s"
 
-#: filestore.inc:127
+#: filestore.inc:130
 msgid "File is too big."
 msgstr "Die Datei ist zu groß."
 
@@ -120,7 +136,7 @@ msgstr "Dateiname:"
 msgid "File size:"
 msgstr "Dateigröße:"
 
-#: filestore.inc:129
+#: filestore.inc:132
 msgid "File was only partially received."
 msgstr "Die Datei wurde nur teilweise empfangen."
 
@@ -128,31 +144,35 @@ msgstr "Die Datei wurde nur teilweise empfangen."
 msgid "I want to:"
 msgstr "Ich will:"
 
-#: layout.inc:40
+#: layout.inc:44
 msgid "Imprint"
 msgstr "Impressum"
 
-#: send-upload.php:23 upload-templates/receive-upload.php:33
+#: send-upload.php:20 upload-templates/receive-upload.php:30
 msgid "Invalid filename."
 msgstr "Ungültiger Dateiname."
 
-#: filestore.inc:115
+#: filestore.inc:118
 msgid "Invalid parameter (maybe file is too big)."
 msgstr "Ungültiger Parameter (Datei ist möglicherweise zu groß)."
 
-#: filestore.inc:124
+#: upload-templates/remove-action.php:25
+msgid "Invalid remove code."
+msgstr "Ungültiger Sicherheitscode."
+
+#: filestore.inc:127
 msgid "No file received."
 msgstr "Keine Datei empfangen."
 
-#: filestore.inc:151
+#: filestore.inc:154
 msgid "Out of disk space."
 msgstr "Nicht genug Plattenplatz."
 
-#: receive.php:59
+#: receive.php:78
 msgid "Permanent"
 msgstr "Dauerhaft"
 
-#: receive.php:55
+#: receive.php:74
 msgid ""
 "Please configure the upload and click \"Generate\". The upload URL will be "
 "sent to the given e-mail address so make sure it is valid!"
@@ -161,9 +181,17 @@ msgstr ""
 "Upload wird an die angegebene E-Mail Adresse geschickt, diese muß also "
 "gültig sein!"
 
-#: layout.inc:41
+#: upload-templates/remove.php:69
+msgid "Please enter the remove code and click \"Remove\"."
+msgstr "Bitte den Sicherheitscode eintragen und \"Entfernen\" anklicken."
+
+#: layout.inc:45
 msgid "Privacy statement"
 msgstr "Datenschutzerklärung"
+
+#: upload-templates/remove.php:72
+msgid "Remove code"
+msgstr "Sicherheitscode"
 
 #: send.php:16 upload-templates/index.php:23
 msgid "Select the file and click \"Upload\"."
@@ -173,15 +201,15 @@ msgstr "Bitte die Datei auswählen und \"Upload\" klicken."
 msgid "The description is invalid."
 msgstr "Die Beschreibung ist ungültig."
 
-#: send-upload.php:55
+#: send-upload.php:52
 msgid "The download URL is:"
 msgstr "Die URL ist:"
 
-#: filestore.inc:172
+#: receive.php:35 filestore.inc:175
 msgid "The e-mail address is invalid."
 msgstr "Die E-Mail Adresse ist ungültig."
 
-#: upload-templates/receive-upload.php:80
+#: upload-templates/receive-upload.php:77
 msgid ""
 "The file has been successfully uploaded and a notification e-mail has been "
 "sent!"
@@ -189,45 +217,49 @@ msgstr ""
 "Die Datei wurde erfolgreich hochgeladen und es wurde eine E-Mail zur "
 "Benachrichtigung verschickt!"
 
-#: send-upload.php:54
+#: send-upload.php:51
 msgid "The file has been successfully uploaded!"
 msgstr "Die Datei wurde erfolgreich hochgeladen!"
 
-#: receive-generate.php:51
+#: receive-generate.php:60
 msgid "The requested upload facility has been generated."
 msgstr "Der gewünschte Upload Zugang wurde bereitgestellt."
 
-#: receive-generate.php:58
+#: receive-generate.php:77
 #, php-format
 msgid "The upload URL has been sent to <pre>%s</pre> via e-mail."
 msgstr "Die Upload URL wurde via E-Mail an <pre>%s</pre> versendet."
 
-#: receive-generate.php:52
+#: receive-generate.php:61
 msgid "The upload URL is:"
 msgstr "Die Upload URL ist:"
 
-#: receive-generate.php:57
+#: receive-generate.php:76
 msgid "The upload has been configured successfully."
 msgstr "Der Upload wurde bereitgestellt."
 
-#: filestore.inc:137
+#: upload-templates/remove-action.php:43
+msgid "The upload page has been removed!"
+msgstr "Die Upload Seite wurde gelöscht!"
+
+#: filestore.inc:140
 msgid "Unknown error."
 msgstr "Unbekannter Fehler."
 
-#: index.php:15
+#: index.php:17
 msgid "Upload a file that can be downloaded by someone else."
 msgstr ""
 "Eine Datei hochladen, die von jemand anderem heruntergeladen werden kann."
 
-#: filestore.inc:253
+#: filestore.inc:258
 msgid "Upload aborted"
 msgstr "Upload wurde abgebrochen"
 
-#: upload-templates/receive-upload.php:77
+#: upload-templates/receive-upload.php:74
 msgid "Upload available"
 msgstr "Upload verfügbar"
 
-#: receive-generate.php:55
+#: receive-generate.php:74
 msgid "Upload facility has been configured"
 msgstr "Der Upload Zugang wurde konfiguriert"
 
@@ -235,15 +267,27 @@ msgstr "Der Upload Zugang wurde konfiguriert"
 msgid "Upload progress:"
 msgstr "Upload Fortschritt:"
 
-#: receive.php:60
+#: receive-generate.php:70
+msgid "Using this remove code: "
+msgstr "Mit diesem Sicherheitscode: "
+
+#: receive-generate.php:66
+msgid "You can remove the upload facility by visiting this URL:"
+msgstr "Die Upload Seite kann auf dieser URL gelöscht werden:"
+
+#: receive-generate.php:72
+msgid "You may want to keep this message for reference."
+msgstr "Es wäre empfehlenswert, diese Nachricht als Referenz zu behalten."
+
+#: receive.php:79
 msgid "Your e-mail address"
 msgstr "Eigene E-Mail Adresse"
 
-#: filestore.inc:250
+#: filestore.inc:255
 msgid "file is too big"
 msgstr "Datei ist zu groß"
 
-#: filestore.inc:251
+#: filestore.inc:256
 msgid "invalid extension"
 msgstr "ungültige Erweiterung"
 

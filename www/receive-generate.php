@@ -43,8 +43,17 @@
         CopyFile ("index.php", $SrcDirName, $DirName);
         CopyFile ("receive-upload.php", $SrcDirName, $DirName);
 
+        # If the upload facility is permanent, generate a remove code and
+        # copy the remove page.
+        $Code = "";
+        if ($Permanent) {
+            $Code = bin2hex (random_bytes (16));
+            CopyFile ("remove.php", $SrcDirName, $DirName);
+            CopyFile ("remove-action.php", $SrcDirName, $DirName);
+        }
+
         # Generate an include file containing configuration variables
-        GenerateConfig ($DirName, $Description, FALSE, $Email, $Permanent);
+        GenerateConfig ($DirName, $Description, FALSE, $Email, $Permanent, $Code);
 
         # Send an email with the upload URL
         $UploadURL = $DataDirURL . "/" . $SubDirName . "/";
@@ -52,6 +61,16 @@
                    _('The upload URL is:') . "\r\n" .
                    "\r\n" .
                    $UploadURL . "\r\n";
+        if ($Permanent) {
+            $Message .= "\r\n" .
+                        _('You can remove the upload facility by visiting this URL:') . "\r\n" .
+                        "\r\n" .
+                        $UploadURL . "remove.php\r\n" .
+                        "\r\n" .
+                        _('Using this remove code: ') . $Code . "\r\n" .
+                        "\r\n" .
+                        _('You may want to keep this message for reference.') . "\r\n";
+        }
         SendMail ($Email, _('Upload facility has been configured'), $Message);
 
         print ("<p><b>" . _('The upload has been configured successfully.') . "</b></p>\n");

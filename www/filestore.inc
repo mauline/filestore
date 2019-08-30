@@ -195,16 +195,18 @@
     }
 
     # Function that generates the config file. Throws an exception on errors.
-    function GenerateConfig ($Dir, $Description, $Done, $Email, $Permanent)
+    function GenerateConfig ($Dir, $Description, $Done, $Email, $Permanent, $Code = "")
     {
         $H = fopen ($Dir . "/config.inc", "w");
         if ($H) {
             fprintf ($H, '<?php   # -*- php-mode -*-' . "\n" .
+                         '    $Code = "%s";' . "\n"           .
                          '    $Description = "%s";' . "\n"   .
                          '    $Done = %s;' . "\n"            .
                          '    $Email = "%s";' . "\n"         .
                          '    $Permanent = %s;' . "\n"       .
                          '?>' . "\n",
+                         $Code,
                          $Description,
                          $Done? "TRUE" : "FALSE",
                          $Email,

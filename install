@@ -51,8 +51,10 @@ install -m 0640 -o root -g ${HTTPD_GRP} www/send-upload.php ${TARGET}/send-uploa
 install -m 0640 -o root -g ${HTTPD_GRP} www/filestore.inc ${TARGET}/filestore.inc
 install -m 0640 -o root -g ${HTTPD_GRP} www/send.php ${TARGET}/send.php
 install -m 0640 -o root -g ${HTTPD_GRP} www/index.php ${TARGET}/index.php
-install -m 0640 -o root -g ${HTTPD_GRP} www/upload-templates/receive-upload.php ${TARGET}/upload-templates/receive-upload.php
 install -m 0640 -o root -g ${HTTPD_GRP} www/upload-templates/index.php ${TARGET}/upload-templates/index.php
+install -m 0640 -o root -g ${HTTPD_GRP} www/upload-templates/receive-upload.php ${TARGET}/upload-templates/receive-upload.php
+install -m 0640 -o root -g ${HTTPD_GRP} www/upload-templates/remove.php ${TARGET}/upload-templates/remove.php
+install -m 0640 -o root -g ${HTTPD_GRP} www/upload-templates/remove-action.php ${TARGET}/upload-templates/remove-action.php
 
 # Copy language files and generate the compiled language ones
 for T in www/po/*/LC_MESSAGES/filestore.po; do
