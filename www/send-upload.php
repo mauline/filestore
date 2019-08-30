@@ -26,7 +26,7 @@
         CheckDiskSpace ($_FILES['upfile']['size']);
 
         # Create the subdirectory name
-        $SubDirName = bin2hex (random_bytes (32));
+        $SubDirName = bin2hex (random_bytes (16));
 
         # Determine where to place the uploaded file. This will fail if the
         # directory does already exist, so in fact covers a (very unlikely)
