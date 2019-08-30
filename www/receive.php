@@ -26,7 +26,7 @@ if (!String.prototype.endsWith) {
     };
 }
 
-function GenerateHandler()                                               
+function GenerateHandler()
 {
     // Make sure we have an e-mail address given
     var AllowedMailDomains = <?= sprintf ("[ '%s' ];\n", implode ("','", $AllowedMailDomains)); ?>
@@ -60,11 +60,7 @@ function GenerateHandler()
     // Specify the function called on status changes
     client.onreadystatechange = function() {
         if (this.readyState == this.DONE) {
-            if (this.status == 200) {
-                resultText.innerHTML = this.responseText;
-            } else {
-                resultText.InnerHTML = this.statusText;
-            }
+            resultText.innerHTML = this.responseText;
             generateButton.disabled = false;
         }
     };

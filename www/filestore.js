@@ -148,11 +148,7 @@ function UploadFileHandler(action)
     // Specify the function called on status changes
     client.onreadystatechange = function() {
         if (this.readyState == this.DONE) {
-            if (this.status == 200) {
-                resultText.innerHTML = this.responseText;
-            } else {
-                resultText.InnerHTML = this.statusText;
-            }
+            resultText.innerHTML = this.responseText;
             uploadButton.disabled = false;
             abortButton.disabled = true;
         }
