@@ -5,9 +5,6 @@
 
     try {
 
-        # Make sure nothing we create is readable by others
-        umask (umask() | 0007);
-
         # Check for upload errors
         CheckUploadError ();
 

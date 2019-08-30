@@ -8,9 +8,6 @@
 
     try {
 
-        # Make sure nothing we create is readable by others
-        umask (umask() | 0007);
-
         # Check for upload errors
         CheckUploadError ();
 
@@ -79,7 +76,7 @@
         # Tell the user about the successful upload
         printf ("<p><b>%s</b></p>\n", _('The file has been successfully uploaded and a notification e-mail has been sent!'));
 
-    } catch (Exception $E) {                                     
+    } catch (Exception $E) {
 
         # Some sort of error occured
         printf ("<p><b>%s</b></p>\n", _('An error has occurred. The error message is:'));

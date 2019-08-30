@@ -29,6 +29,9 @@
         'en'
     );
 
+    # Make sure nothing we create is readable by others
+    umask (umask() | 0007);
+
     # Define several variables used in the scripts
     $MainDirName = __DIR__;
     $DataDirName = $MainDirName . "/data";
