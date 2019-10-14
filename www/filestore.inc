@@ -41,7 +41,7 @@
     }
     $MainDirURL = $Protocol . "://" .
                   $_SERVER["SERVER_NAME"] .
-                  preg_replace ('/(\/data\/[0-9a-f]{64}\/?|^\/)$/',
+                  preg_replace ('/(\/data\/[0-9a-f]{32}\/?|^\/)$/',
                                 "",
                                 dirname ($_SERVER['SCRIPT_NAME']));
     $DataDirURL = $MainDirURL . "/data";
